@@ -7,6 +7,7 @@ Style/StringLiterals:
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/*'
+    - 'spec/**/*'
 
 Style/Documentation:
   Exclude:
