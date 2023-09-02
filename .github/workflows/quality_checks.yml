@@ -6,6 +6,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: passwordSample
+          POSTGRES_DB: embarca_ai_test
+        ports:
+          - 5432:5432
+
+    env:
+      RAILS_ENV: test
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: passwordSample
+
     steps:
       - uses: actions/checkout@v2
 
@@ -21,13 +37,13 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
-          cp config/database.yml.example config/database.yml
-          bin/rails db:setup
+          bin/rails db:create
+          bin/rails db:schema:load
 
       - name: Run Tests
         env:
           RAILS_ENV: test
-         run: bundle exec rspec
+        run: bundle exec rspec
 
       - name: Run RuboCop
         run: bundle exec rubocop
