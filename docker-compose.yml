@@ -2,12 +2,10 @@ version: '3'
 services:
   embarca_ai_db:
     image: postgres:latest
-    volumes:
-      - embarca_ai_postgres_data:/var/lib/postgresql/data/
+    # volumes:
+    #   - embarca_ai_postgres_data:/var/lib/postgresql/data/
     environment:
-      POSTGRES_DB: embarca_ai_db
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: passwordSample
 
   embarca_ai_backend:
     build: .

@@ -1,5 +1,5 @@
 # Use the official Ruby 2.7 image
-FROM ruby:2.7
+FROM ruby:2.7.0
 
 # Set environment variables specific to EmbarcaAiBackendTest
 ENV EMBARCA_AI_ROOT /var/www/embarca_ai_backend
