@@ -1,0 +1,16 @@
+require:
+  - rubocop-rails
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*'
+
+Style/Documentation:
+  Exclude:
+    - 'app/helpers/*'
+    - 'app/mailers/*'
+    - 'app/models/*'
+    - 'config/*'
