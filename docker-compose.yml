@@ -1,0 +1,23 @@
+version: '3'
+services:
+  embarca_ai_db:
+    image: postgres:latest
+    volumes:
+      - embarca_ai_postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: embarca_ai_db
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+
+  embarca_ai_backend:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/embarca_ai_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - embarca_ai_db
+
+volumes:
+  embarca_ai_postgres_data:
