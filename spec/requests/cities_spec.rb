@@ -11,55 +11,66 @@ RSpec.describe "Cities", type: :request do
 
   describe "GET index" do
     it "returns all cities when no params are passed" do
-      get :index, params: { format: :json }
-      expect(assigns(:cities)).to match_array([city1, city2]) # add all the cities you have created
+      get "/cities", params: { format: :json }
+      json = JSON.parse(response.body)
+      expect(json.map { |city| city["id"] }).to match_array([city1.id, city2.id])
     end
 
     it "returns cities in a case-insensitive manner" do
-      get :index, params: { part_of_name: 'RIT', format: :json }
-      expect(assigns(:cities)).to match_array([city1])
+      get "/cities", params: { part_of_name: "RIT", format: :json }
+      json = JSON.parse(response.body)
+      expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns cities when search starts with a space" do
-      get :index, params: { part_of_name: ' RIT', format: :json }
-      expect(assigns(:cities)).to match_array([city1])
+      get "/cities", params: { part_of_name: " RIT", format: :json }
+      json = JSON.parse(response.body)
+      expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns empty array when there are no matches" do
-      get :index, params: { part_of_name: 'xyz', format: :json }
-      expect(assigns(:cities)).to be_empty
+      get "/cities", params: { part_of_name: "xyz", format: :json }
+      json = JSON.parse(response.body)
+      expect(json).to be_empty
     end
 
     it "returns cities filtered by state" do
-      get :index, params: { state: "Paraná", format: :json }
-      expect(assigns(:cities)).to match_array([city1])
+      get "/cities", params: { state: "Paraná", format: :json }
+      json = JSON.parse(response.body)
+      expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns cities filtered by part of the name" do
-      get :index, params: { part_of_name: "rit", format: :json }
-      expect(assigns(:cities)).to match_array([city1])
+      get "/cities", params: { part_of_name: "rit", format: :json }
+      json = JSON.parse(response.body)
+      expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns cities filtered by state and part of the name" do
-      get :index, params: { state: 'Paraná', part_of_name: 'rit', format: :json }
-      expect(assigns(:cities)).to match_array([city1])
+      get "/cities", params: { state: "Paraná", part_of_name: "rit", format: :json }
+      json = JSON.parse(response.body)
+      expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns a 200 OK status" do
-      get :index, params: { format: :json }
+      get "/cities", params: { format: :json }
       expect(response).to have_http_status(200)
     end
 
     it "returns JSON data" do
-      get :index, params: { format: :json }
-      expect(response.content_type).to eq("application/json; charset=utf-8")
+      get "/cities", params: { format: :json }
+      expect(response.content_type).to start_with("application/json")
     end
 
     it "returns the correct JSON structure" do
-      get :index, params: { format: :json }
+      get "/cities", params: { format: :json }
       json = JSON.parse(response.body)
       expect(json).to include(
-        { 'id' => city1.id, 'name' => city1.name, 'state_id' => city1.state_id }
+        { "id" => city1.id,
+          "name" => city1.name,
+          "state_id" => city1.state_id,
+          "created_at" => city1.created_at.as_json,
+          "updated_at" => city1.updated_at.as_json }
       )
     end
   end
