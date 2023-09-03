@@ -6,7 +6,7 @@ Fiz esse projeto para por meus conhecimentos a prova. Recebi o teste ao me candi
 <br>
 A equipe da Embarca Ai vai analisar e definir se eu alcançei os requisitos ou não.
 
-## 🛠 Observações
+###  Observações
 Utilizei a metodologia **TDD** (sempre realizando testes antes) e fiz um Kanban board no Github para organizar as tarefas. Tambem fiz uma automação **CI/CD** com o **Github Actions** para que todas as Pull Requests passassem por checagem de qualidade de codigo, exigindo passar no **Rubocop** e nos testes **Rspec**.
 
 ## 🛠 Especificações Técnicas
@@ -16,24 +16,12 @@ Utilizei a metodologia **TDD** (sempre realizando testes antes) e fiz um Kanban 
 <img alt="Ruby Badge" src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white"><br>
 <img alt="Ruby on Rails Badge" src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white"><br>
 
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
+### Database
+<a href="https://www.postgresql.org/">PostgreSQL</a>
 
 <br>
 
-### Funcionalidades <a name="key-features"></a>
+### Funcionalidades
 
 #### FRONTEND:
 - **Seleção de estados**
@@ -44,7 +32,7 @@ Utilizei a metodologia **TDD** (sempre realizando testes antes) e fiz um Kanban 
 - **Forte validação de dados nos Models**
 - **Testes extensivos para os Models e Requests**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 <br>
 
@@ -90,11 +78,11 @@ Para rodar os testes, abra um terminal, navegue até o diretório do projeto e r
 ```
   bundle exec rspec
 ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 <br>
 
-## Author <a name="author"></a>
+## Autor
 
 👤 **Tiago Lelinski**
 
@@ -102,28 +90,28 @@ Para rodar os testes, abra um terminal, navegue até o diretório do projeto e r
 - Twitter: [@LelinskiMarin](https://twitter.com/LelinskiMarin)
 - LinkedIn: [Tiago](https://www.linkedin.com/in/tiago-lelinski-marin/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 
 
-## ⭐️ Show your support <a name="support"></a>
+## ⭐️ Suporte esse projeto
 
-Give a ⭐️ if you like this project!
+Deixe uma ⭐️ se você gostou desse projeto!
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 
-## 🙏 Agradecimentos <a name="acknowledgements"></a>
+## 🙏 Agradecimentos
 
 Obrigado equipe de RH da Embarca Ai por me dar essa oportunidade de mostrar meus conhecimentos.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 
 
-## 📝 License <a name="license"></a>
+## 📝 Licença
 
 This project is [MIT](./LICENSE) licensed.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
