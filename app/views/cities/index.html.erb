@@ -20,7 +20,7 @@
               %>
 
             <label for="city_search">Cidade:</label>
-            <%= text_field_tag 'city_search', nil, class: 'city-search' %>
+            <%= text_field_tag 'city_search', nil, class: 'city-search-field' %>
 
             <%= submit_tag 'Buscar', class: 'submit-btn' %>
           <% end %>
@@ -35,7 +35,7 @@
             <% end %>
           </ul>
         <% else %>
-          <p>Cidade nao encontrada, tente outra combinação de nome e estado.</p>
+          <p class="results-list">Cidade nao encontrada, tente outra combinação de nome e estado.</p>
         <% end %>
       </div>
     </div>
