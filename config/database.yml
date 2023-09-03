@@ -1,0 +1,20 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: embarca_ai_db
+  username: postgres
+  password: passwordSample
+  pool: 5
+
+development:
+  <<: *default
+  database: embarca_ai_development
+
+test:
+  <<: *default
+  database: embarca_ai_test
+
+production:
+  <<: *default
+  database: embarca_ai_production
