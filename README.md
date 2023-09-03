@@ -78,6 +78,13 @@ Para rodar os testes, abra um terminal, navegue até o diretório do projeto e r
 ```
   bundle exec rspec
 ```
+
+**Se os testes não funcionarem, tente comentar as linhas abaixo no arquivo config/database.yml :**
+```
+  host: embarca_ai_db
+  username: postgres
+  password: passwordSample
+```
 <p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
 
 <br>
