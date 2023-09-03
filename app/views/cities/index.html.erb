@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Search Cities</title>
+  </head>
+
+  <body>
+    <div class="city-search">
+
+      <div class="search-header">
+        <h1>Busca de Cidades</h1>
+        <div class="search">
+          <%= form_tag('/cities', method: 'get', class: 'search-form' ) do %>
+            <label for="state_id">Estado:</label>
+              <%= select_tag 'state_id',
+                  options_from_collection_for_select(@states, 'id', 'name'),
+                  prompt: '--Select State--',
+                  class: 'state-select'
+              %>
+
+            <label for="city_search">Cidade:</label>
+            <%= text_field_tag 'city_search', nil, class: 'city-search' %>
+
+            <%= submit_tag 'Buscar', class: 'submit-btn' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div id="results">
+        <% if @filtered_cities.present? %>
+          <ul class="results-list">
+            <% @filtered_cities.each do |city| %>
+              <li><%= city.name %>, <%= city.state.name %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>Cidade nao encontrada, tente outra combinação de nome e estado.</p>
+        <% end %>
+      </div>
+    </div>
+
+  </body>
+</html>

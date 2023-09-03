@@ -17,37 +17,37 @@ RSpec.describe "Cities", type: :request do
     end
 
     it "returns cities in a case-insensitive manner" do
-      get "/cities", params: { part_of_name: "RIT", format: :json }
+      get "/cities", params: { city_search: "RIT", format: :json }
       json = JSON.parse(response.body)
       expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns cities when search starts with a space" do
-      get "/cities", params: { part_of_name: " RIT", format: :json }
+      get "/cities", params: { city_search: " RIT", format: :json }
       json = JSON.parse(response.body)
       expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns empty array when there are no matches" do
-      get "/cities", params: { part_of_name: "xyz", format: :json }
+      get "/cities", params: { city_search: "xyz", format: :json }
       json = JSON.parse(response.body)
       expect(json).to be_empty
     end
 
     it "returns cities filtered by state" do
-      get "/cities", params: { state: "Paraná", format: :json }
+      get "/cities", params: { state_id: state1.id, format: :json }
       json = JSON.parse(response.body)
       expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns cities filtered by part of the name" do
-      get "/cities", params: { part_of_name: "rit", format: :json }
+      get "/cities", params: { city_search: "rit", format: :json }
       json = JSON.parse(response.body)
       expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
 
     it "returns cities filtered by state and part of the name" do
-      get "/cities", params: { state: "Paraná", part_of_name: "rit", format: :json }
+      get "/cities", params: { state: "Paraná", city_search: "rit", format: :json }
       json = JSON.parse(response.body)
       expect(json.map { |city| city["id"] }).to match_array([city1.id])
     end
